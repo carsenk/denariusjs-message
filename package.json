@@ -1,0 +1,67 @@
+{
+  "name": "denariusjs-message",
+  "version": "2.1.0",
+  "description": "denariusjs-message",
+  "keywords": [
+    "denariusjs-message",
+    "denarius"
+  ],
+  "homepage": "https://github.com/carsenk/denariusjs-message",
+  "bugs": {
+    "url": "https://github.com/carsenk/denariusjs-message/issues"
+  },
+  "license": "MIT",
+  "files": [
+    "index.js"
+  ],
+  "main": "./index.js",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/carsenk/denariusjs-message.git"
+  },
+  "scripts": {
+    "coverage": "nyc tape test/*.js",
+    "prepublish": "npm run test",
+    "standard": "standard",
+    "test": "npm run standard && npm run unit",
+    "unit": "tape test/*.js"
+  },
+  "dependencies": {
+    "bech32": "^1.1.3",
+    "bs58grscheck": "^2.1.2",
+    "buffer-equals": "^1.0.3",
+    "create-hash": "^1.1.2",
+    "secp256k1": "^3.0.1",
+    "varuint-bitcoin": "^1.0.1"
+  },
+  "devDependencies": {
+    "bigi": "^1.4.1",
+    "denariusjs-lib": "^3.3.2",
+    "nyc": "^14.1.1",
+    "standard": "^12.0.1",
+    "tape": "^4.13.0"
+  },
+  "engines": {
+    "node": ">=0.10"
+  },
+  "react-native": {
+    "crypto": "react-native-crypto",
+    "_stream_transform": "readable-stream/transform",
+    "_stream_readable": "readable-stream/readable",
+    "_stream_writable": "readable-stream/writable",
+    "_stream_duplex": "readable-stream/duplex",
+    "_stream_passthrough": "readable-stream/passthrough",
+    "stream": "stream-browserify",
+    "vm": "vm-browserify"
+  },
+  "browser": {
+    "crypto": "react-native-crypto",
+    "_stream_transform": "readable-stream/transform",
+    "_stream_readable": "readable-stream/readable",
+    "_stream_writable": "readable-stream/writable",
+    "_stream_duplex": "readable-stream/duplex",
+    "_stream_passthrough": "readable-stream/passthrough",
+    "stream": "stream-browserify",
+    "vm": "vm-browserify"
+  }
+}
