@@ -1,4 +1,4 @@
-const bs58grscheck = require('bs58grscheck')
+const bs58dcheck = require('bs58dcheck')
 const bech32 = require('bech32')
 const bufferEquals = require('buffer-equals')
 const createHash = require('create-hash')
@@ -184,7 +184,7 @@ function verify (message, address, signature, messagePrefix) {
       ])
       const redeemScriptHash = hash160(redeemScript)
       actual = redeemScriptHash
-      expected = bs58grscheck.decode(address).slice(1)
+      expected = bs58dcheck.decode(address).slice(1)
     } else if (parsed.segwitType === SEGWIT_TYPES.P2WPKH) {
       const result = bech32.decode(address)
       const data = bech32.fromWords(result.words.slice(1))
@@ -193,7 +193,7 @@ function verify (message, address, signature, messagePrefix) {
     }
   } else {
     actual = publicKeyHash
-    expected = bs58grscheck.decode(address).slice(1)
+    expected = bs58dcheck.decode(address).slice(1)
   }
 
   return bufferEquals(actual, expected)
@@ -214,7 +214,7 @@ function verifyElectrum (message, address, signature, messagePrefix) {
   let actual, expected
 
   try {
-    const expectedHash160 = bs58grscheck.decode(address).slice(1)
+    const expectedHash160 = bs58dcheck.decode(address).slice(1)
     // first check if this hash is the same as the publicKeyHash
     // validate if it is P2PKH (starts with F)
     if (bufferEquals(publicKeyHash, expectedHash160)) {
